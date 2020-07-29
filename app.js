@@ -11,7 +11,7 @@ const app = express();
 const authRoutes = require('./routes/auth.route');
 const indexRoutes = require('./routes/index.route');
 
-const corsConfig = { origin: 'http://localhost:3000', credentials: true };
+const corsConfig = { origin: process.env.CLIENT_ORIGIN, credentials: true };
 app.use(cors(corsConfig));
 
 /**
@@ -28,20 +28,20 @@ const connection = mongoose.connection;
 
 const sessionStore = new MongoStore({
   mongooseConnection: connection,
-  collection: 'sessions',
+  collection: process.env.SESSION_COLLECTION_NAME,
 });
 
 app.use(
   session({
-    secret: 'secret-to-change',
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: false,
     store: sessionStore,
-    name: 'auth',
+    name: process.env.COOKIE_NAME,
     cookie: {
-      domain: 'localhost',
-      path: '/',
-      maxAge: 1000 * 60 * 60 * 24,
+      domain: process.env.COOKIE_DOMAIN,
+      path: process.env.COOKIE_PATH,
+      maxAge: parseInt(process.env.COOKIE_MAX_AGE),
     },
   }),
 );
