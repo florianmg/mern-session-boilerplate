@@ -8,7 +8,7 @@ Contient une architecture et une authentification fonctionelle basé sur des ses
 - `git clone https://github.com/florianmg/mern-auth-base.git`
 - `cd mern-auth-base`
 - `npm install`, `cd client`, `npm install`
-- Remplir les informations dans le .env à la racine
+- Remplir les informations dans le `.env` à la racine
 - `npm run dev` pour lancer le **serveur + le client**
 
 
