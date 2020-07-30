@@ -2,12 +2,13 @@
   "name": "mern-auth-base",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:api": "nodemon server.js",
     "dev:client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\""
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
+    "create:component": "node ./tools/createComponent.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,7 @@
     "mongoose-unique-validator": "^2.0.3",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "prompts": "^2.3.2"
   }
 }
